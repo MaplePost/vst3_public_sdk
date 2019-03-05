@@ -52,6 +52,7 @@ namespace EditorHost {
 class App : public IApplication
 {
 public:
+    
 	~App () noexcept override;
 	void init (const std::vector<std::string>& cmdArgs) override;
 

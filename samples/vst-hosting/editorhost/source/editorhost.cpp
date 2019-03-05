@@ -66,7 +66,7 @@ inline bool operator!= (const ViewRect& r1, const ViewRect& r2)
 namespace Vst {
 namespace EditorHost {
 
-static AppInit gInit (std::make_unique<App> ());
+static AppInit gInit (std::unique_ptr<App> (new App()));
 
 //------------------------------------------------------------------------
 class WindowController : public IWindowController, public IPlugFrame

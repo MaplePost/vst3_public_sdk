@@ -40,6 +40,7 @@
 #include "pluginterfaces/base/ipluginbase.h"
 #include <utility>
 #include <vector>
+#include <memory>
 
 //------------------------------------------------------------------------
 namespace VST3 {

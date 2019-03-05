@@ -118,7 +118,7 @@ public:
 					auto stringLength = CFStringGetLength (errorString);
 					auto maxSize =
 					    CFStringGetMaximumSizeForEncoding (stringLength, kCFStringEncodingUTF8);
-					auto buffer = std::make_unique<char[]> (maxSize);
+					auto buffer = std::unique_ptr<char> (new char[maxSize]);
 					if (CFStringGetCString (errorString, buffer.get (), maxSize,
 					                        kCFStringEncodingUTF8))
 						errorDescription = buffer.get ();
@@ -168,7 +168,7 @@ public:
 	{
 		if (!path.empty () && path[0] != '/')
 		{
-			auto buffer = std::make_unique<char[]> (PATH_MAX);
+			auto buffer = std::unique_ptr<char> (new char[PATH_MAX]);
 			auto workDir = getcwd (buffer.get (), PATH_MAX);
 			if (workDir)
 			{
